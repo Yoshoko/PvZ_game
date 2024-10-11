@@ -8,18 +8,35 @@ PlantFactory = function(plantName) {
 }
 
 AvailablePlant = function(plantName, position) {
-	var offset = 20;
-	this.plant = PlantFactory(plantName);
-	this.position = position;
-	this.w = 50;
-	this.h = 50;
-	this.x = offset/2 + position * ( this.w + offset);
-	this.y = offset/2;
+    var offset = 20;
+    this.plant = PlantFactory(plantName);
+    this.position = position;
+    this.w = 50;
+    this.h = 50;
+    this.x = offset / 2 + position * (this.w + offset);
+    this.y = offset / 2;
 
-	this.isReloading = false;
-	this.reloadStarted = 0;
-	this.reloadInterval = 5000;
+    this.isReloading = false;
+    this.reloadStarted = 0;
+    this.reloadInterval = 5000;
+
+    // Charger l'image spécifique pour le HUD
+    switch(plantName) {
+        case 'SunFlower':
+            this.image = $('img-sunflower');
+            break;
+        case 'PeaseShooter':
+            this.image = $('img-peashooter');
+            break;
+        case 'WallNut':
+            this.image = $('img-wallnut');
+            break;
+        case 'TallNut':
+            this.image = $('img-tallnut');
+            break;
+    }
 }
+
 
 AvailablePlant.prototype.draw = function() {
 	map.save();
@@ -41,12 +58,14 @@ AvailablePlant.prototype.draw = function() {
 		
 	}
 	
-	map.fillStyle = this.plant.color;
-	map.fillRect( this.x + 10, this.y + 10, this.w - 20, this.w - 20 );
+
+	map.drawImage(this.image, this.x + 5, this.y - 2, this.w, this.h);
 	
 	map.font = 'bold 18px Arial';
-	map.fillStyle = 'yellow';
+	map.fillStyle = 'green';
 	map.fillText( this.plant.price, this.x + 4, this.y + 16);
+	map.drawImage(this.image, this.x + 5, this.y - 2, this.w, this.h);
+
 	map.font = '16px Arial';
 	map.fillStyle = '#333	';
 	map.fillText( this.plant.price, this.x + 5, this.y + 15);
@@ -135,3 +154,4 @@ Plant.prototype.checkDamage = function(t) {
 		}
 	}
 }
+

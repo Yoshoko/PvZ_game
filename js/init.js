@@ -307,7 +307,7 @@ function PlantsVsZombies() {
 			cxt.globalAlpha = 1;
 			cxt.fillStyle = '#fff'
 			cxt.font = '40px Impact';
-			var text = 'P A U S E D'
+			var text = 'JORDAN BARDELA'
 			cxt.fillText(text, this.width/2 - cxt.measureText(text).width/2, this.height/2 + 20);
 			cxt.restore();
 
@@ -348,12 +348,10 @@ function PlantsVsZombies() {
 		}
 
 
-		//Spawn sun
 		if( t - this.sunInterval > this.lastSunSpawnTime && this.suns.length < 20 ) {
 			this.spawnSun(t);
 		}
 
-		//Spawn zombie if required
 		if( t - this.spawnInterval > this.lastSpawnTime && this.zombies.length < 2 ) {
 			this.spawnZombie(t);
 		}
@@ -383,7 +381,6 @@ function PlantsVsZombies() {
 			this.drawHud();
 		}
 
-		//HIghtlight active cell
 		if( this.drag ) {
 			var c = parseInt(this.mouse.x / 60);
 			var l = parseInt((this.mouse.y - levelOffset ) / 60);

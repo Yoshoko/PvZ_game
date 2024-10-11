@@ -1,13 +1,20 @@
 PlantSunFlower = function() {
-	Plant.apply(this,arguments);
-	this.color = 'orange';
-	this.price = 50;
-	this.suns = 0;
-	this.sunsDrawed = 0;
-	this.lastSunSpawned = new Date().getTime();
-	this.sunSpawnInterval = 10000;
+    Plant.apply(this, arguments);
+    this.color = 'orange';
+    this.price = 50;
+    this.suns = 0;
+    this.sunsDrawed = 0;
+    this.lastSunSpawned = new Date().getTime();
+    this.sunSpawnInterval = 5000;
+
+    this.image = $('img-sunflower'); 
 }
-extend(PlantSunFlower,Plant);
+extend(PlantSunFlower, Plant);
+
+PlantSunFlower.prototype.draw = function() {
+    cxt.drawImage(this.image, this.x - this.w, this.y - 60, 80, 80);
+}
+
 
 PlantSunFlower.prototype.update = function() {
 	var t = new Date().getTime();
@@ -25,34 +32,41 @@ PlantSunFlower.prototype.updateSunsOrder = function() {
 
 }
 
-Sun = function (x,y,flower) {
-	this.x = x;
-	this.y = 85;
-	this.destY = y;
+Sun = function(x, y, flower) {
+    this.x = x;
+    this.y = 85;
+    this.destY = y;
 
-	this.isFalling = true;
-	this.flower = flower || null;
-	this.radius = 12;
-	if( this.flower ) {
-		this.y = this.flower.y - this.flower.h;
-		this.flower.suns++;
-		this.order = this.flower.suns - 1;
-	}
+    this.isFalling = true;
+    this.flower = flower || null;
+    this.radius = 12;
+
+    if (this.flower) {
+        this.y = this.flower.y - this.flower.h;
+        this.flower.suns++;
+        this.order = this.flower.suns - 1;
+    }
+
+    this.image = $('img-sun'); 
 }
 
+
 Sun.prototype.draw = function () {
-	var p = this.getPosition();
-	
-	cxt.save();
-	cxt.beginPath();
-	cxt.arc( p.x, p.y, this.radius,  rad(0) , rad(360), false );
-	cxt.fillStyle = 'red';
-	cxt.fill();
-	cxt.lineWidth = 3;
-	cxt.strokeStyle = 'yellow';
-	cxt.stroke();
-	cxt.closePath();
-	cxt.restore();
+    var p = this.getPosition();
+
+    cxt.save();
+    cxt.beginPath();
+    cxt.arc(p.x, p.y, this.radius, 0, Math.PI * 2, false); // Dessine un cercle complet
+
+    // Utilise une couleur jaune unie pour le soleil
+    cxt.fillStyle = '#FFFF00'; // Couleur jaune
+    cxt.fill();
+
+    cxt.lineWidth = 3;
+    cxt.strokeStyle = '#FFFF00'; // Bordure également jaune
+    cxt.stroke();
+    cxt.closePath();
+    cxt.restore();
 }
 
 Sun.prototype.update = function () {

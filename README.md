@@ -1,13 +1,13 @@
 # PvZ_game
 
-Bonjour à tous et bienvuenu sur notre Jeu, PlantvsZombies.
+Bonjour à tous et bienvuenu sur notre Jeu, PlantsvsZombies.
 
-Veuillez suivre les etapes suivants afin de lancer le jeu :
+Veuillez suivre les étapes suivantes afin de lancer le jeu :
 
 ⚙️ Étape 1 : Installer votre serveur local Mamp/Xamp/Wamp, rendez vous sur le site du serveur qui convient à votre systeme - Mac/Windows/Linux. 
-- Suite à l’installation, allumez votre serveur grace au bouton on/off en haut a droite de votre interface serveur.
+- Suite à l’installation, allumez votre serveur grâce au bouton on/off en haut à droite de votre interface serveur.
 
-⬇️ Étape 2 : Une fois votre serveur local installer, rendez vous sur votre étditeur de code VisualStudio CODE, cliquez sur l’option “cloner le depot git », coller le lien de ce depot git hub dans la barre de recherche.
+⬇️ Étape 2 : Une fois votre serveur local installé, rendez vous sur votre étditeur de code VisualStudio CODE, cliquez sur l’option " cloner le depot git ", coller le lien de ce dépot git hub dans la barre de recherche.
  
 🗂️ Étape 3 : BDD. 
 

@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
 	Plants.init();
 }, false);
 
-function PlantsVsZombies() {	
+function PlantsVsZombies() {
 	var _this = this,
 	    canvas = $("canvas"),
 	    mCanvas = $("mapCanvas");
@@ -29,13 +29,13 @@ function PlantsVsZombies() {
 
 	this.mouse = { x: 0, y: 0, clicked: false };
 
-	this.lastSpawnTime = 0;
+	this.lastSpawnTime = 10;
 	this.spawnInterval = 10000;
 	
 	this.sunCoins = 400;
 
 	this.lastSunSpawnTime = new Date().getTime();
-	this.sunInterval = 8000;
+	this.sunInterval = 13000;
 
 	this.shovelActivated = false;
 	
@@ -71,13 +71,11 @@ function PlantsVsZombies() {
 	}
 
 	this.init = function() {	
-		//Listen for mouse events
 		this.addListeners();
 
 
 		this.drawLevel();
 
-		//Start game
 		this.animate();
 		
 	}
@@ -156,12 +154,10 @@ function PlantsVsZombies() {
 	}
 
 	this.drawHud = function() {
-		//Draw HUD
 		map.save();
 		map.fillStyle = '#333';
 		map.fillRect(0, 0, this.width, 70);
 		
-		//Available plants
 		for(var i in this.availablePlants ) {
 			this.availablePlants[i].draw();
 		}
@@ -171,7 +167,6 @@ function PlantsVsZombies() {
 
 		map.drawImage( $('img-shovel'), this.width-160, 10 , 50 , 50);
 
-		//Display coins
 		var txt = '$'+this.sunCoins;
 		map.fillStyle = '#777';
 		map.fillRect(this.width-100, 10, 90, 50);
@@ -307,7 +302,7 @@ function PlantsVsZombies() {
 			cxt.globalAlpha = 1;
 			cxt.fillStyle = '#fff'
 			cxt.font = '40px Impact';
-			var text = 'JORDAN BARDELA'
+			var text = 'PAUSE POPO'
 			cxt.fillText(text, this.width/2 - cxt.measureText(text).width/2, this.height/2 + 20);
 			cxt.restore();
 
@@ -352,7 +347,7 @@ function PlantsVsZombies() {
 			this.spawnSun(t);
 		}
 
-		if( t - this.spawnInterval > this.lastSpawnTime && this.zombies.length < 2 ) {
+		if( t - this.spawnInterval > this.lastSpawnTime && this.zombies.length < 10 ) {
 			this.spawnZombie(t);
 		}
 			
@@ -373,6 +368,33 @@ function PlantsVsZombies() {
 			}	
 		}
 	}
+		
+
+	PlantsVsZombies.prototype.triggerGameOver = function() {
+    this.isPaused = true;
+    
+    cxt.clearRect(0, 0, this.width, this.height); 
+    
+    cxt.save();
+    cxt.globalAlpha = 0.7;
+    cxt.fillStyle = '#FF0000';
+    cxt.fillRect(0, 0, this.width, this.height);
+    
+    cxt.globalAlpha = 1;
+    cxt.fillStyle = '#fff';
+    cxt.font = '20px Arial';
+    
+    var text = 'Tu fais vraiment aucun effort !'; 
+    var textWidth = cxt.measureText(text).width;
+    
+    cxt.fillText(text, (this.width / 2) - (textWidth / 2), this.height / 2 + 20);
+    
+    cxt.restore();
+    
+    textWidth.style.display = 'block';
+};
+
+
 
 	this.draw = function() {
 		this.clearCanvas();

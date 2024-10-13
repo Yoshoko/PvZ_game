@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règles du Jeu</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #313431;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .rules-container {
+            width: 600px;
+            height: 400px;
+            background-color: #313431;
+            padding: 20px;
+            border: solid 2px #77dc77;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            margin: 20px auto 0;
+            background-color: #77dc77;
+            border-radius: 30px;
+            color: #313431;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="rules-container">
+        <h1>Règles du Jeu</h1>
+        <p>
+            Voici les règles de Plants vs Zombies:<br>
+            - Placez vos plantes pour défendre votre jardin.<br>
+            - Chaque plante a des capacités spéciales pour détruire les zombies.<br>
+            - Les zombies essaieront de toucher le côté gauche du jardin.<br>
+            - Vous perdez si un zombie touche la gauche du terrain.<br>
+            - Collectez des soleils pour planter davantage de plantes.
+        </p>
+        <button onclick="goBack()">Retour au Menu</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = 'menu.html'; 
+        }
+    </script>
+
+</body>
+
+</html>

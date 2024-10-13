@@ -3,7 +3,7 @@ PlantTallNut = function() {
     this.color = '#333';
     this.price = 150;
     this.h = 75;
-    this.health = 900;
+    this.health = 600;
 
     this.image = $('img-tallnut'); 
 }

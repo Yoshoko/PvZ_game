@@ -1,13 +1,8 @@
-/**
- *
- */
-
 PlantPeaseShooter = function() {
 	Plant.apply(this,arguments);
 	this.color = 'blue';
 	
 	this.image = $('img-peashooter');
-	
 	this.price = 100;
 
 	this.lastFireTime = 0;
@@ -47,7 +42,6 @@ PlantPeaseShooter.prototype.update = function() {
 }
 
 PlantPeaseShooter.prototype.draw = function() {
-	//Plant.prototype.draw.apply(this);
 
 	cxt.drawImage( this.image, this.x - this.w , this.y -60, 80,80)
 

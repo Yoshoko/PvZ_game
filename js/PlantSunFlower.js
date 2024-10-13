@@ -5,7 +5,7 @@ PlantSunFlower = function() {
     this.suns = 0;
     this.sunsDrawed = 0;
     this.lastSunSpawned = new Date().getTime();
-    this.sunSpawnInterval = 5000;
+    this.sunSpawnInterval = 10000;
 
     this.image = $('img-sunflower'); 
 }
@@ -56,14 +56,13 @@ Sun.prototype.draw = function () {
 
     cxt.save();
     cxt.beginPath();
-    cxt.arc(p.x, p.y, this.radius, 0, Math.PI * 2, false); // Dessine un cercle complet
+    cxt.arc(p.x, p.y, this.radius, 0, Math.PI * 2, false); 
 
-    // Utilise une couleur jaune unie pour le soleil
-    cxt.fillStyle = '#FFFF00'; // Couleur jaune
+    cxt.fillStyle = '#FFFF00'; 
     cxt.fill();
 
     cxt.lineWidth = 3;
-    cxt.strokeStyle = '#FFFF00'; // Bordure également jaune
+    cxt.strokeStyle = '#FFFF00'; 
     cxt.stroke();
     cxt.closePath();
     cxt.restore();

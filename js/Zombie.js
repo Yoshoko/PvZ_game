@@ -9,7 +9,7 @@ Zombie = function(line, options) {
     this.h = 90;
 
     this.health = options['health'] || 100;
-    this.damage = options['damage'] || 40;
+    this.damage = options['damage'] || 50;
     this.attackSpeed = options['attackSpeed'] || 3000;
     this.lastAttack = 0;
     this.lastMove = 0;
@@ -28,10 +28,8 @@ Zombie = function(line, options) {
     this.stepDuration = options['stepDuration'] || 2000;
     this.speed = options['speed'] || 1;
 
-    // Charger l'image du zombie
     this.image = $('img-zombie');
 }
-
 
 Zombie.prototype.update = function() {
     var t = new Date().getTime();
@@ -52,9 +50,8 @@ Zombie.prototype.update = function() {
                     this.lastMove = t;
                     this.nextCell = parseInt(this.x / 60) - 1;
 
-                    // Vérifie si le zombie atteint la gauche du canvas
                     if (this.x <= 0) {
-                        Plants.triggerGameOver(); // Déclenche la défaite
+                        Plants.triggerGameOver(); 
                     }
 
                     var checkPlant;
@@ -96,11 +93,10 @@ Zombie.prototype.update = function() {
 }
 
 
+
 Zombie.prototype.draw = function() {
-    // Dessine l'image du zombie
     cxt.drawImage(this.image, this.x - this.w / 2, this.y - this.h, this.w, this.h);
 
-    // Affiche la santé du zombie au-dessus
     cxt.font = '16px Arial';
     cxt.fillStyle = '#fff';
     cxt.fillText(this.health, this.x - 10, this.y - 20);
@@ -132,22 +128,3 @@ Zombie.prototype.die = function(damage) {
 
 }
 
-PlantsVsZombies.prototype.triggerGameOver = function() {
-    this.isPaused = true; // Arrête le jeu
-
-    // Afficher le message de défaite
-    cxt.save();
-    cxt.globalAlpha = 0.7;
-    cxt.fillStyle = '#333';
-    cxt.fillRect(0, 0, this.width, this.height);
-
-    cxt.globalAlpha = 1;
-    cxt.fillStyle = '#fff';
-    cxt.font = '40px Impact';
-    var text = 'GAME OVER';
-    cxt.fillText(text, this.width / 2 - cxt.measureText(text).width / 2, this.height / 2 + 20);
-    cxt.restore();
-
-    // Stop the game loop by stopping the animation
-    cancelAnimationFrame(this.animationFrameId);
-}

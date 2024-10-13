@@ -2,9 +2,8 @@ PlantWallNut = function() {
     Plant.apply(this, arguments);
     this.color = '#666';
     this.price = 50;
-    this.health = 400;
+    this.health = 300;
 
-    this.image = $('img-wallnut'); // Charge l'image du WallNut
 }
 extend(PlantWallNut, Plant);
 

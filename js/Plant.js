@@ -20,7 +20,6 @@ AvailablePlant = function(plantName, position) {
     this.reloadStarted = 0;
     this.reloadInterval = 5000;
 
-    // Charger l'image spécifique pour le HUD
     switch(plantName) {
         case 'SunFlower':
             this.image = $('img-sunflower');
@@ -36,6 +35,7 @@ AvailablePlant = function(plantName, position) {
             break;
     }
 }
+
 
 
 AvailablePlant.prototype.draw = function() {
@@ -60,7 +60,6 @@ AvailablePlant.prototype.draw = function() {
 	
 
 	map.drawImage(this.image, this.x + 5, this.y - 2, this.w, this.h);
-	
 	map.font = 'bold 18px Arial';
 	map.fillStyle = 'green';
 	map.fillText( this.plant.price, this.x + 4, this.y + 16);
@@ -95,13 +94,12 @@ AvailablePlant.prototype.select = function() {
 
 Plant = function(plantName) {
 	this.name = plantName;
-	this.price = 25;
 	this.line = null;
 	this.cell = null;
 	this.w = 40;
 	this.h = 50;
 	this.isAlive = true;
-	this.health = 100;
+	this.health = 500;
 }
 
 Plant.prototype.setPosition = function(l,c) {
@@ -116,7 +114,6 @@ Plant.prototype.draw = function() {
 	cxt.fillRect( this.x - this.w/2, this.y - this.h, this.w,this.h);
 	cxt.strokeRect( this.x - this.w/2, this.y - this.h, this.w,this.h);	
 
-	//Display health
 	cxt.font = '16px Arial';
 	cxt.fillStyle = '#fff';
 	cxt.fillText(this.health,this.x - 15,this.y - 20);

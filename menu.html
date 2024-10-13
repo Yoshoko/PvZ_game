@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PvZ</title>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background-color: #313431;
+		}
+
+		.menu-container {
+			width: 600px;
+			height: 400px;
+			background-image: url(img/background.jpg);
+			background-position:center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		h1 {
+			color: #fff;
+			font-family: Arial, sans-serif;
+			font-size: 36px;
+			margin-bottom: 40px;
+		}
+
+		button {
+			width: 200px;
+			padding: 15px;
+			margin: 10px;
+			font-size: 18px;
+			font-family: Arial, sans-serif;
+			background-color: #313431;
+		 border-radius: 30px;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div class="menu-container">
+		<h1>Bienvenue</h1>
+		<button onclick="startGame()">Jouer</button>
+		<button onclick="showRules()">Règles</button>
+	</div>
+
+	<script>
+		function startGame() {
+			window.location.href = 'game.html';
+		}
+
+		function showRules() {
+			window.location.href = 'rules.html';
+		}
+	</script>
+
+</body>
+
+</html>

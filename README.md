@@ -10,8 +10,6 @@ Veuillez suivre les étapes suivantes afin de lancer le jeu :
 
 ⬇️ Étape 2 : Une fois votre serveur local installé, rendez vous sur votre étditeur de code VisualStudio CODE, cliquez sur l’option " cloner le depot git ", coller le lien de ce dépot git hub dans la barre de recherche.
 
-🗂️ Étape 3 : BDD.
-
 💻 Étape 4 : Maintenant que vous avez enregistré le dépôt GitHub cloné, il vous suffit de deplacer le dossier dans le dossier « HTdocs » afin qu’il puisse être affiché sur votre navigateur.
 
 🔎 Étape 5 : Afin d’afficher le jeu, rendez vous sur votre navigateur, et tapez « localhost/PvZ_game ».

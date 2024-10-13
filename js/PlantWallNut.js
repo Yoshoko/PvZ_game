@@ -4,6 +4,9 @@ PlantWallNut = function() {
     this.price = 50;
     this.health = 300;
 
+    this.image = $('img-wallnut'); 
+    
+
 }
 extend(PlantWallNut, Plant);
 
